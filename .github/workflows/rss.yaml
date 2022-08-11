@@ -27,8 +27,8 @@ jobs:
         run: git add .
         run: export COMMIT_DATE=$(date)
         run: |
-        git config --local user.email "robot@robot.kasong.com"
-        git config --local user.name "feishu-robot-github-actions"
+          git config --local user.email "robot@robot.kasong.com"
+          git config --local user.name "feishu-robot-github-actions"
         run: git commit -m "定时执行" -m "$COMMIT_DATE"
       - name: push code
         uses: ad-m/github-push-action@master
