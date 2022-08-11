@@ -1,0 +1,21 @@
+const Parser = require("rss-parser");
+const seedList = require("./seed.js");
+const sendNews = require("./feishuRobot");
+const { diffContent, writeLog } = require("./diff");
+
+const parser = new Parser();
+
+(async () => {
+  for (let i = 0; i < seedList.length; i++) {
+    const { url, name } = seedList[i];
+    try {
+      const { items } = await parser.parseURL(url);
+      const newItemList = diffContent(name, items);
+      newItemList.forEach((item) => {
+        sendNews(name, item);
+      });
+    } catch (e) {
+      writeLog(`${name}失败 ${e}`);
+    }
+  }
+})();
