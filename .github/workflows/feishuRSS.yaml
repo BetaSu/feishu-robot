@@ -3,6 +3,7 @@ on: push
 jobs:
   RSS_Process:
     runs-on: ubuntu-latest
+    environment: ACTION_SECRET
     steps:
       - uses: actions/checkout@v3
         with:
@@ -16,8 +17,8 @@ jobs:
       - name: 执行RSS程序
         run: yarn rss
         env:
-          SEED_URL: ${{ ACTION_SECRET.SEED_URL }}
-          WEB_HOOK: ${{ ACTION_SECRET.WEB_HOOK }}
+          SEED_URL: ${{ secrets.SEED_URL }}
+          WEB_HOOK: ${{ secrets.WEB_HOOK }}
       - name: commit code
         run: |
           git add .
