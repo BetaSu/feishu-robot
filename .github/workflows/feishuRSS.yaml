@@ -13,14 +13,11 @@ jobs:
           node-version: "16.x"
       - name: 安装依赖
         run: yarn install
-      - name: 同步环境变量
-        run: |
-          touch .env
-          echo SEED_URL=${{ secrets.SEED_URL }} >> .env
-          echo WEB_HOOK=${{ secrets.WEB_HOOK }} >> .env
-          yarn syncENV
       - name: 执行RSS程序
         run: yarn rss
+        env:
+          envkey_SEED_URL: ${{ secrets.SEED_URL }}
+          envkey_WEB_HOOK: ${{ secrets.WEB_HOOK }}
       - name: commit code
         run: |
           git add .
