@@ -10,7 +10,7 @@ jobs:
           fetch-depth: 0 # otherwise, there would be errors pushing refs to the destination repository.
       - uses: actions/setup-node@v3
         with:
-          node-version: '16.x'
+          node-version: "16.x"
       - name: 同步环境变量
         run: |
           touch .env
@@ -22,12 +22,12 @@ jobs:
       - name: 执行RSS程序
         run: npm run rss
       - name: commit code
-        run: git add .
-        run: export COMMIT_DATE=$(date)
         run: |
+          git add .
+          export COMMIT_DATE=$(date)
           git config --local user.email "robot@robot.kasong.com"
           git config --local user.name "feishu-robot-github-actions"
-        run: git commit -m "定时执行" -m "$COMMIT_DATE"
+          git commit -m "定时执行" -m "$COMMIT_DATE"
       - name: push code
         uses: ad-m/github-push-action@master
         with:
