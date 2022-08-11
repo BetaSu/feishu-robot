@@ -27,7 +27,7 @@ jobs:
           export COMMIT_DATE=$(date)
           git config --local user.email "robot@robot.kasong.com"
           git config --local user.name "feishu-robot-github-actions"
-          git commit -m "定时执行" -m "$COMMIT_DATE"
+          git commit -m "定时执行 $COMMIT_DATE"
       - name: push code
         uses: ad-m/github-push-action@master
         with:
