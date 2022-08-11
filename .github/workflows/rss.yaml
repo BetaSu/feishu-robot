@@ -1,0 +1,38 @@
+name: "feishu send info"
+on:
+  schedule:
+    - cron: "0 */10 * * *"
+jobs:
+  RSS_Process:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+        with:
+          persist-credentials: false # otherwise, the token used is the GITHUB_TOKEN, instead of your personal access token.
+          fetch-depth: 0 # otherwise, there would be errors pushing refs to the destination repository.
+      - uses: actions/setup-node@v3
+        with:
+          node-version: '16.x'
+      - name: 同步环境变量
+        run: |
+          touch .env
+          echo SEED_URL=${{ secrets.SEED_URL }} >> .env
+          echo WEB_HOOK=${{ secrets.WEB_HOOK }} >> .env
+          npm run syncENV
+      - name: 安装依赖
+        run: npm install
+      - name: 执行RSS程序
+        run: npm run rss
+      - name: commit code
+        run: git add .
+        run: export COMMIT_DATE=$(date)
+        run: |
+        git config --local user.email "robot@robot.kasong.com"
+        git config --local user.name "feishu-robot-github-actions"
+        run: git commit -m "定时执行" -m "$COMMIT_DATE"
+      - name: push code
+        uses: ad-m/github-push-action@master
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          branch: master
+          force: true
