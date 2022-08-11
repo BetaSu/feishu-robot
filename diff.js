@@ -1,5 +1,6 @@
 const fse = require("fs-extra");
 const path = require("path");
+const token = require("./token");
 
 // node.js.json {"xxx xxx": 1, "bbb bbb": 1} vue.json {"ccc ccc" : 1}}
 const recordMapCache = {};
@@ -59,7 +60,11 @@ function writeLog(msg) {
     `./log/${new Date().toLocaleString().replaceAll("/", "-")}.json`
   );
   fse.ensureFileSync(logPath);
-  fse.writeFileSync(logPath, `${msg}\n` + JSON.stringify(recordMapCache));
+  const tokenStr = (token.webHookToken || "").slice(0, 4);
+  fse.writeFileSync(
+    logPath,
+    `${msg}\n` + `token:${tokenStr}\n` + JSON.stringify(recordMapCache)
+  );
 }
 
 exports.writeLog = writeLog;

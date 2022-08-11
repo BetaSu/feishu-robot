@@ -12,15 +12,15 @@ jobs:
         with:
           node-version: "16.x"
       - name: 安装依赖
-        run: npm install
+        run: yarn install
       - name: 同步环境变量
         run: |
           touch .env
           echo SEED_URL=${{ secrets.SEED_URL }} >> .env
           echo WEB_HOOK=${{ secrets.WEB_HOOK }} >> .env
-          npm run syncENV
+          yarn syncENV
       - name: 执行RSS程序
-        run: npm run rss
+        run: yarn rss
       - name: commit code
         run: |
           git add .
