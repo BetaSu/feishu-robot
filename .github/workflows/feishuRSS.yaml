@@ -16,8 +16,8 @@ jobs:
       - name: 执行RSS程序
         run: yarn rss
         env:
-          envkey_SEED_URL: ${{ secrets.SEED_URL }}
-          envkey_WEB_HOOK: ${{ secrets.WEB_HOOK }}
+          SEED_URL: ${{ secrets.SEED_URL }}
+          WEB_HOOK: ${{ secrets.WEB_HOOK }}
       - name: commit code
         run: |
           git add .
