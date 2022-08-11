@@ -1,4 +1,4 @@
-name: "feishu send info"
+name: "feishu info"
 on:
   schedule:
     - cron: "0 */10 * * *"
