@@ -60,7 +60,7 @@ function writeLog(msg) {
     `./log/${new Date().toLocaleString().replaceAll("/", "-")}.json`
   );
   fse.ensureFileSync(logPath);
-  const tokenStr = (token.HEHE || "").slice(0, 4);
+  const tokenStr = (token.webHookToken || "").slice(0, 4);
   fse.writeFileSync(
     logPath,
     `${msg}\n` + `token:${tokenStr}\n` + JSON.stringify(recordMapCache)

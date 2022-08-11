@@ -3,5 +3,4 @@ module.exports = {
   seedUrl: process.env.SEED_URL,
   // 机器人webhook token
   webHookToken: process.env.WEB_HOOK,
-  HEHE: process.env.HEHE,
 };
