@@ -1,7 +1,7 @@
 name: "feishu send infro"
 on:
   schedule:
-    - cron: "0 */10 * * * ?"
+    - cron: "0 */10 * * *"
 jobs:
   RSS_Process:
     runs-on: ubuntu-latest
