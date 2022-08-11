@@ -1,7 +1,5 @@
 name: "feishu info"
-on:
-  schedule:
-    - cron: "*/2 * * * *"
+on: push
 jobs:
   RSS_Process:
     runs-on: ubuntu-latest
