@@ -11,14 +11,14 @@ jobs:
       - uses: actions/setup-node@v3
         with:
           node-version: "16.x"
+      - name: 安装依赖
+        run: npm install
       - name: 同步环境变量
         run: |
           touch .env
           echo SEED_URL=${{ secrets.SEED_URL }} >> .env
           echo WEB_HOOK=${{ secrets.WEB_HOOK }} >> .env
           npm run syncENV
-      - name: 安装依赖
-        run: npm install
       - name: 执行RSS程序
         run: npm run rss
       - name: commit code
