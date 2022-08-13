@@ -1,6 +1,6 @@
 const axios = require("axios").default;
 const { writeLog } = require("./diff");
-const { webHookToken } = require("./token");
+const { webHookToken } = require("../token");
 const parseContent = require("./parseContent");
 
 const webhook = `https://open.feishu.cn/open-apis/bot/v2/hook/${webHookToken}`;

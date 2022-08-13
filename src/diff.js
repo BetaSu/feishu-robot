@@ -1,13 +1,19 @@
 const fse = require("fs-extra");
 const path = require("path");
-const token = require("./token");
+const token = require("../token");
 
-// node.js.json {"xxx xxx": 1, "bbb bbb": 1} vue.json {"ccc ccc" : 1}}
+const root = path.resolve(__dirname, "../");
+
+// {
+//   "node.js": {"xxx xxx": 1, "bbb bbb": 1},
+//   "Javascript Weekly": {"ccc ccc" : 1}
+// }
 const recordMapCache = {};
 
 exports.diffContent = function diffContent(name, items) {
   const recordMap = getRecordMap(name);
   const newContentList = [];
+
   items.forEach((item) => {
     const record = createRecord(item.title, item.pubDate);
     if (recordMap[record] !== 1) {
@@ -34,7 +40,7 @@ function getRecordMap(name) {
 }
 
 function readRecordMap(name) {
-  const recordPath = path.resolve(__dirname, `./record/${name}.json`);
+  const recordPath = path.resolve(root, `./record/${name}.json`);
   try {
     return fse.readJSONSync(recordPath, { encoding: "utf8" });
   } catch (e) {
@@ -45,9 +51,9 @@ function readRecordMap(name) {
 
 function writeRecordMap(name) {
   // 写文件
-  const recordPath = path.resolve(__dirname, `./record/${name}.json`);
+  const recordPath = path.resolve(root, `./record/${name}.json`);
   fse.ensureFileSync(recordPath);
-  fse.writeJSONSync(recordPath, recordMapCache[name]);
+  fse.writeJSONSync(recordPath, recordMapCache[name], { spaces: "\t" });
 }
 
 function createRecord(title, pubDate) {
@@ -56,14 +62,16 @@ function createRecord(title, pubDate) {
 
 function writeLog(msg) {
   const logPath = path.resolve(
-    __dirname,
+    root,
     `./log/${new Date().toLocaleString().replaceAll("/", "-")}.json`
   );
   fse.ensureFileSync(logPath);
   const tokenStr = (token.webHookToken || "").slice(0, 4);
   fse.writeFileSync(
     logPath,
-    `${msg}\n` + `token:${tokenStr}\n` + JSON.stringify(recordMapCache)
+    `msg: ${msg}\n` +
+      `token: ${tokenStr}\n` +
+      JSON.stringify(recordMapCache, null, "\t")
   );
 }
 

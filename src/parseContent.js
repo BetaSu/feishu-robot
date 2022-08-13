@@ -1,29 +1,24 @@
 const { parse } = require("node-html-parser");
 
+// 一方面用于新闻去重，一方面用于去广告
+const blackListMap = {
+  "Find Tech Jobs with Hired": true,
+  "Find JavaScript Jobs with Hired": true,
+};
+
 // 将RSS的HTML结构解析成飞书的富文本结构
 module.exports = function parseContent(name, item) {
   const { link = "", creator, pubDate } = item;
-  const contentParser = contentParserMap[name]
-    ? contentParserMap[name]
-    : contentParserMap.default;
+  const contentParser = contentParserMap[name] || contentParserMap.default;
   const rowOne = [
-    {
-      tag: "text",
-      text: `⏰ 发布时间：${new Date(pubDate).toLocaleString()}  `,
-    },
-    {
-      tag: "a",
-      text: "🔗 原文链接 \n",
-      href: link,
-    },
+    createText(`⏰ 发布时间：${new Date(pubDate).toLocaleString()}  `),
+    createA("🔗 原文链接 \n", link),
+    createRow(" "),
   ];
   const result = [rowOne, ...contentParser(item)];
 
   if (creator) {
-    rowOne.unshift({
-      tag: "text",
-      text: `✍️作者：${creator}  `,
-    });
+    rowOne.unshift(createRow(`✍️ 作者：${creator}`));
   }
   return result;
 };
@@ -50,7 +45,8 @@ function JSWeeklyStyleParser({ content }) {
     if (span.nextSibling) {
       content = span.nextSibling.textContent.trimEnd();
     }
-    if (href && title) {
+    if (href && title && !blackListMap[title]) {
+      blackListMap[title] = true;
       const row = [createA(title, href)];
       result.push(row);
       if (content) {

@@ -1,7 +1,7 @@
 const Parser = require("rss-parser");
 const seedList = require("./seed.js");
-const sendNews = require("./feishuRobot");
-const { diffContent, writeLog } = require("./diff");
+const sendNews = require("./src/feishuRobot");
+const { diffContent, writeLog } = require("./src/diff");
 
 const parser = new Parser();
 
