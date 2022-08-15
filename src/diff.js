@@ -1,6 +1,5 @@
 const fse = require("fs-extra");
 const path = require("path");
-const token = require("../token");
 
 const root = path.resolve(__dirname, "../");
 
@@ -66,12 +65,9 @@ function writeLog(msg) {
     `./log/${new Date().toLocaleString().replaceAll("/", "-")}.json`
   );
   fse.ensureFileSync(logPath);
-  const tokenStr = (token.webHookToken || "").slice(0, 4);
   fse.writeFileSync(
     logPath,
-    `msg: ${msg}\n` +
-      `token: ${tokenStr}\n` +
-      JSON.stringify(recordMapCache, null, "\t")
+    `msg: ${msg}\n` + JSON.stringify(recordMapCache, null, "\t")
   );
 }
 

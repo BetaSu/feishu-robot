@@ -16,7 +16,7 @@ module.exports = async function sendNewsDebounce(name, item) {
       post: {
         zh_cn: {
           title: `来自「${name}」的资讯 —— 📖 ${item.title}`,
-          content: parseContent(name, item),
+          content: await parseContent(name, item),
         },
       },
     },
@@ -36,6 +36,7 @@ function scheduleReq() {
 
     try {
       const reqMsg = reqList.shift();
+
       const { data } = await axios.post(webhook, reqMsg);
       if (data.code) {
         writeLog("发送消息出错：" + data.msg.slice(0, 100));

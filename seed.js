@@ -21,4 +21,9 @@ module.exports = [
     name: "Node Weekly",
     url: "https://cprss.s3.amazonaws.com/nodeweekly.com.xml",
   },
+  {
+    name: "科技爱好者周刊",
+    // url: "https://feeds.feedburner.com/ruanyifeng",
+    url: "http://www.ruanyifeng.com/blog/atom.xml",
+  },
 ];
