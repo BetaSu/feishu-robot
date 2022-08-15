@@ -35,7 +35,7 @@ async function uploadImg2FeishuFromImgUrl(imgUrl) {
     return resData.image_key;
   } catch (e) {
     console.warn(e);
-    writeLog("操作图片下载、上传飞书报错：", e);
+    writeLog("操作图片下载、上传飞书报错：" + e.toString());
     return "";
   }
 }
