@@ -13,6 +13,14 @@ const finished = promisify(stream.finished);
 const root = path.resolve(__dirname, "../");
 let authorizationCache;
 
+const sleep = (time) => {
+  return new Promise((resolve) => {
+    setTimeout(() => {
+      resolve();
+    }, time);
+  });
+};
+
 async function uploadImg2FeishuFromImgUrl(imgUrl) {
   try {
     const imgPath = await downloadImgFromImgUrl(imgUrl);
@@ -21,7 +29,7 @@ async function uploadImg2FeishuFromImgUrl(imgUrl) {
     const form = new FormData();
     form.append("image_type", "message");
     form.append("image", fse.createReadStream(imgPath));
-
+    await sleep(200);
     const { data = {} } = await axios.post(uploadImgAPI, form, {
       headers: {
         ...form.getHeaders(),
