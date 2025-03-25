@@ -125,5 +125,6 @@
 	"Node 23.8 introduces the URL Pattern API Tue, 25 Feb 2025 00:00:00 +0000": 1,
 	"TypeScript gets on board with Node's type stripping Tue, 4 Mar 2025 00:00:00 +0000": 1,
 	"Another way to look inside your npm packages Tue, 11 Mar 2025 00:00:00 +0000": 1,
-	"Node 20 gains require(esm) support by default Tue, 18 Mar 2025 00:00:00 +0000": 1
+	"Node 20 gains require(esm) support by default Tue, 18 Mar 2025 00:00:00 +0000": 1,
+	"Node gets the URLPattern API Tue, 25 Mar 2025 00:00:00 +0000": 1
 }
