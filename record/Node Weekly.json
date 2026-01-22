@@ -164,5 +164,6 @@
 	"How the Seattle Times is using pnpm Tue, 9 Dec 2025 00:00:00 +0000": 1,
 	"'Twas the Node before Christmas... Tue, 16 Dec 2025 00:00:00 +0000": 1,
 	"The story of how require(esm) became stable Thu, 8 Jan 2026 00:00:00 +0000": 1,
-	"A new guide to configuring Node packages Thu, 15 Jan 2026 00:00:00 +0000": 1
+	"A new guide to configuring Node packages Thu, 15 Jan 2026 00:00:00 +0000": 1,
+	"require(esm) now stable in Node 25 Thu, 22 Jan 2026 00:00:00 +0000": 1
 }
