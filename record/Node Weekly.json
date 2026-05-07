@@ -179,5 +179,6 @@
 	"Social engineering attacks target high-impact Node.js maintainers Thu, 9 Apr 2026 00:00:00 +0000": 1,
 	"Node moves toward Temporal by default Thu, 16 Apr 2026 00:00:00 +0000": 1,
 	"Playwright's exciting new page.screencast API Thu, 23 Apr 2026 00:00:00 +0000": 1,
-	"pnpm 11.0, AVA 8.0, and a Node 26 delay Thu, 30 Apr 2026 00:00:00 +0000": 1
+	"pnpm 11.0, AVA 8.0, and a Node 26 delay Thu, 30 Apr 2026 00:00:00 +0000": 1,
+	"Node 26.0 ships Temporal; Node 26.1 brings FFI Thu, 7 May 2026 00:00:00 +0000": 1
 }
