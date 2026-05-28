@@ -182,5 +182,6 @@
 	"pnpm 11.0, AVA 8.0, and a Node 26 delay Thu, 30 Apr 2026 00:00:00 +0000": 1,
 	"Node 26.0 ships Temporal; Node 26.1 brings FFI Thu, 7 May 2026 00:00:00 +0000": 1,
 	"Let's go deep into Node's internals Thu, 14 May 2026 00:00:00 +0000": 1,
-	"Should we rewrite Node.js in Rust? Thu, 21 May 2026 00:00:00 +0000": 1
+	"Should we rewrite Node.js in Rust? Thu, 21 May 2026 00:00:00 +0000": 1,
+	"Deno hits 76% Node.js compatibility Thu, 28 May 2026 00:00:00 +0000": 1
 }
