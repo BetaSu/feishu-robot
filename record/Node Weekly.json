@@ -185,5 +185,6 @@
 	"Should we rewrite Node.js in Rust? Thu, 21 May 2026 00:00:00 +0000": 1,
 	"Deno hits 76% Node.js compatibility Thu, 28 May 2026 00:00:00 +0000": 1,
 	"Find better alternatives to npm packages Thu, 4 Jun 2026 00:00:00 +0000": 1,
-	"npm install is (finally) getting safer Thu, 11 Jun 2026 00:00:00 +0000": 1
+	"npm install is (finally) getting safer Thu, 11 Jun 2026 00:00:00 +0000": 1,
+	"Extending Node instead of replacing it Thu, 18 Jun 2026 00:00:00 +0000": 1
 }
