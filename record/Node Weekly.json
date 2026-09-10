@@ -197,5 +197,6 @@
 	"Building Node TUIs with HTML and CSS Thu, 13 Aug 2026 00:00:00 +0000": 1,
 	"Building terminal UIs with HTML and CSS Thu, 13 Aug 2026 00:00:00 +0000": 1,
 	"Node 26.8 reads and writes ZIP files Thu, 27 Aug 2026 00:00:00 +0000": 1,
-	"Bun now passes 80.5% of Node's test suite Thu, 3 Sep 2026 00:00:00 +0000": 1
+	"Bun now passes 80.5% of Node's test suite Thu, 3 Sep 2026 00:00:00 +0000": 1,
+	"Node is getting a built-in benchmark runner Thu, 10 Sep 2026 00:00:00 +0000": 1
 }
